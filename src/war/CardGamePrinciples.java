@@ -22,5 +22,5 @@ public class CardGamePrinciples {
         game.getPlayers().add(new WarPlayer("Player 2"));
 
         game.play();
-    } 
+    }
 }

@@ -104,6 +104,8 @@ public class WarGame extends Game {
             pile.add(warCard1);
             pile.add(warCard2);
 
+            System.out.println("Each Player Puts 3 cards face down.");
+            
             System.out.println(player1.getName() + " war card: " + warCard1);
             System.out.println(player2.getName() + " war card: " + warCard2);
 
