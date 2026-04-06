@@ -7,6 +7,8 @@ package war;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+
 
 /**
  * A concrete class that represents any grouping of cards for a Game. HINT, you might want to subclass this more than
@@ -15,25 +17,21 @@ import java.util.Collections;
  * @author dancye
  * @author Paul Bonenfant Jan 2020
  * 
- * Modifier: Lucas Martin, Matthew Lingal
+ * Modifier: Lucas Martin, Matthew Lingaolingao, Tajudeen Hussein
  * 
  */
+
 public class GroupOfCards {
 
-    //The group of cards, stored in an ArrayList
-    private ArrayList<Card> cards;
-    private int size;//the size of the grouping
+    private ArrayList<PlayingCard> cards;
+    private int size;
 
-    public GroupOfCards(int size) {
-        this.size = size;
+    public GroupOfCards() {
+        this.cards = new ArrayList<>();
+        this.size = 0;
     }
 
-    /**
-     * A method that will get the group of cards as an ArrayList
-     *
-     * @return the group of cards.
-     */
-    public ArrayList<Card> getCards() {
+    public ArrayList<PlayingCard> getCards() {
         return cards;
     }
 
@@ -41,18 +39,30 @@ public class GroupOfCards {
         Collections.shuffle(cards);
     }
 
-    /**
-     * @return the size of the group of cards
-     */
     public int getSize() {
-        return size;
+        return cards.size();
     }
 
-    /**
-     * @param size the max size for the group of cards
-     */
     public void setSize(int size) {
         this.size = size;
     }
 
-}//end class
+    public void addCard(PlayingCard card) {
+        cards.add(card);
+    }
+
+    public void addCards(List<PlayingCard> newCards) {
+        cards.addAll(newCards);
+    }
+
+    public PlayingCard removeTopCard() {
+        if (cards.isEmpty()) {
+            return null;
+        }
+        return cards.remove(0);
+    }
+
+    public boolean isEmpty() {
+        return cards.isEmpty();
+    }
+}

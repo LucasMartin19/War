@@ -11,18 +11,34 @@ package war;
  *
  * @author dancye
  * 
- * Modifier: Lucas Martin, Matthew Lingal
+ * Modifier: Lucas Martin, Matthew Lingaolingao, Tajudeen Hussein
  * 
  */
 public abstract class Card {
-    //default modifier for child classes
 
-    /**
-     * Students should implement this method for their specific children classes
-     *
-     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
-     */
+    public enum Suit {DIAMOND, SPADES, CLUBS, HEARTS}
+    public enum Value {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING}
+
+    private Value value;
+    private Suit suit;
+
+    public Card(Value value, Suit suit) {
+        this.value = value;
+        this.suit = suit;
+    }
+
+    public Value getValue() {
+        return value;
+    }
+
+    public Suit getSuit() {
+        return suit;
+    }
+
+    public int getRank() {
+        return value.ordinal();
+    }
+
     @Override
     public abstract String toString();
-
 }
